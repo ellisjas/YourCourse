@@ -1,0 +1,24 @@
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <%= link_to "YOURCOURSE", root_path, id: "logo", class: "btn btn-lg btn-info" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <%= link_to "#", class: "btn btn-info" do %>
+            <i class="fa fa-list-ol" aria-hidden="true"></i> Category
+          <% end %>
+        </li>
+        <li>
+          <%= link_to "#", class: "btn btn-info" do %>
+            <i class="fa fa-location-arrow" aria-hidden="true"></i> Location
+          <% end %>
+          </li>
+        <li>
+          <%= link_to "#", class: "btn btn-info" do %>
+            <i class="fa fa-sign-in" aria-hidden="true"></i> Log in
+          <% end %>
+          </li>
+      </ul>
+    </nav>
+  </div>
+</header>
