@@ -1,12 +1,28 @@
 <% provide(:title, "Home") %>
+
 <div class="center jumbotron">
-<h1>Welcome to Your Course App</h1>
+  <h1>Welcome to Your Course App</h1>
+  <h2>
+    This is the home page for RAD Assignment 2.
+  </h2>
+  <%= link_to "#", class: "btn btn-lg btn-danger" do %>
+      <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up now
+  <% end %>
+</div>
 
-<h2>
-  This is the home page for RAD Assignment 2.
-</h2>
-
-<%= link_to "#", class: "btn btn-lg btn-danger" do %>
-    <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up now
-<% end %>
+<div class="row" id="home-options">
+  <div class="col-md-6">
+    <h1>View Course as a Guest User</h1>
+    <p>Browse and view courses as a guest</p>
+    <%= link_to "#", class: "btn btn-success" do %>
+      <i class="fa fa-book" aria-hidden="true"></i> Browse all courses
+    <% end %>
+  </div>
+  <div class="col-md-6">
+    <h1>Sign in to your account</h1>
+    <p>Update your courses, view your courses, view coordinator information</p>
+    <%= link_to "#", class: "btn btn-success" do %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Log in to your account
+    <% end %>
+  </div>
 </div>
