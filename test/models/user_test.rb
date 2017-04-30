@@ -94,7 +94,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "associated courses should be destroyed" do
     @user.save
-    @user.courses.create!(name: "Dependent Course", prerequisite: "Web Programming", description: "This is a new course.")
+    @user.courses.create!(name: "Dependent Course", prerequisite: "Web Programming", description: "This is a new course. It'll be deleted when user is deleted.")
     assert_difference 'Course.count', -1 do
       @user.destroy
     end
