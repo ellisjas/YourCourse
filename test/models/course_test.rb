@@ -3,8 +3,8 @@ require 'test_helper'
 class CourseTest < ActiveSupport::TestCase
   
   def setup
-    @user = users(:steven)
-    @course = @user.courses.build(name: "New Course", prerequisite: "Web Programming", description: "This is a new course.")
+    @user = users(:mark)
+    @course = @user.courses.build(name: "New Course", prerequisite: "Web Programming", description: "This is a new course. Description needs to be at least 30 characters.")
   end
 
   test "should be valid" do

@@ -1,4 +1,4 @@
-steven:
-  name: Steven Xu
-  email: steven.xu@rmit.edu.au
+mark:
+  name: Mark Tice
+  email: mark.tice@rmit.edu.au
   password_digest: <%= User.digest('Foobar1!') %>

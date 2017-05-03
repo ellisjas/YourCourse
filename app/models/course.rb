@@ -1,6 +1,8 @@
 class Course < ApplicationRecord
   
-  has_one :user
+  belongs_to :user
+  has_many :categories
+  has_many :locations
   
   validates :user_id, presence: true
   validates :name, presence: true, length: { in: 10..50 }

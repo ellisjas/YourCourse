@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = users(:steven)
+    @user = users(:mark)
   end
 
   test "should be valid" do
@@ -36,7 +36,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "email validation should accept valid addresses" do
-    valid_addresses = %w[user.user@rmit.edu.au u.USER@rmIT.edu.AU ]
+    valid_addresses = %w[user.user@rmit.edu.au u.USER@rmIT.edu.AU]
     valid_addresses.each do |valid_address|
       @user.email = valid_address
       assert @user.valid?, "#{valid_address.inspect} should be valid"
@@ -60,7 +60,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "email addresses should be saved as lower-case" do
-    mixed_case_email = "SteVen.xU@rmIT.edu.AU"
+    mixed_case_email = "MaRk.TiCE@rmIT.edu.AU"
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
