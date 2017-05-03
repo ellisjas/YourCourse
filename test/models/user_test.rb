@@ -3,7 +3,7 @@ require 'test_helper'
 class UserTest < ActiveSupport::TestCase
   
   def setup
-    @user = User.new(name: "Example User", email: "foo.bar@rmit.edu.au", password: "Foobar1!", password_confirmation: "Foobar1!")
+    @user = users(:steven)
   end
 
   test "should be valid" do
@@ -60,7 +60,7 @@ class UserTest < ActiveSupport::TestCase
   end
   
   test "email addresses should be saved as lower-case" do
-    mixed_case_email = "Foo.BAR@rmIT.edu.AU"
+    mixed_case_email = "SteVen.xU@rmIT.edu.AU"
     @user.email = mixed_case_email
     @user.save
     assert_equal mixed_case_email.downcase, @user.reload.email
@@ -89,6 +89,14 @@ class UserTest < ActiveSupport::TestCase
     invalid_passwords.each do |invalid_password|
       @user.password = @user.password_confirmation = invalid_password
       assert_not @user.valid?, "#{invalid_password.inspect} should not be valid"
+    end
+  end
+  
+  test "associated courses should be destroyed" do
+    @user.save
+    @user.courses.create!(name: "Dependent Course", prerequisite: "Web Programming", description: "This is a new course. It'll be deleted when user is deleted.")
+    assert_difference 'Course.count', -1 do
+      @user.destroy
     end
   end
   

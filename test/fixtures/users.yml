@@ -1,4 +1,4 @@
-  john:
-    name: John Citizen
-    email: test@rmit.edu.au
-    password_digest: <%= User.digest('password') %>
+steven:
+  name: Steven Xu
+  email: steven.xu@rmit.edu.au
+  password_digest: <%= User.digest('Foobar1!') %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+java:
+  name: Java for C Programmers
+  prerequisite: Introduction to Programming
+  description: This course introduces you to the core capabilities of the Java programming language.
+
+ai:
+  name: Artificial Intelligence
+  prerequisite: Algorithms and Analysis
+  description: This course introduces you to the basic concepts and techniques of Artificial Intelligence (AI).
