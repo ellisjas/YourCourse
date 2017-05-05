@@ -184,6 +184,12 @@ input {
   margin-left: 0;
 }
 
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
 
 /* footer */
 
@@ -212,6 +218,11 @@ footer {
   }
 }
 
+.checkboxes {
+  label {
+    font-weight: normal;
+  }
+}
 
 /* miscellaneous */
 

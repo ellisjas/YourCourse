@@ -1,8 +1,14 @@
 class Course < ApplicationRecord
   
-  belongs_to :user
-  has_many :categories
-  has_many :locations
+  has_one :user
+  
+  has_many :locatables, dependent: :destroy
+  has_many :locations, through: :locatables
+  
+  has_many :categorisations, dependent: :destroy
+  has_many :categories, through: :categorisations
+  
+  mount_uploader :picture, PictureUploader
   
   validates :user_id, presence: true
   validates :name, presence: true, length: { in: 10..50 }

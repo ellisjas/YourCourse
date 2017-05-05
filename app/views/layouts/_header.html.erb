@@ -41,9 +41,9 @@
         </li>
         <% if logged_in? %>
           <li>
-            <a href="#" class="btn btn-info">
+            <%= link_to new_course_path, class: "btn btn-info" do %>
               <i class="fa fa-file-text-o" aria-hidden="true"></i> New Course
-            </a>
+            <% end %>
           </li>
           <li>
             <a href="#" class="dropdown-toggle btn btn-danger" data-toggle="dropdown">

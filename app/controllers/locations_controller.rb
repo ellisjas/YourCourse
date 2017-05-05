@@ -15,7 +15,14 @@ class LocationsController < ApplicationController
     if @location.save
       flash[:success] = "Location created!"
       redirect_to root_url
+    else
+      render 'new'
     end
+  end
+  
+  def courses
+    @location = Location.find(params[:id])
+    @courses = @location.courses
   end
   
   private

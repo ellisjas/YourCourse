@@ -15,7 +15,14 @@ class CategoriesController < ApplicationController
     if @category.save
       flash[:success] = "Category created!"
       redirect_to root_url
+    else
+      render 'new'
     end
+  end
+  
+  def courses
+    @category = Category.find(params[:id])
+    @courses = @category.courses
   end
   
   private
