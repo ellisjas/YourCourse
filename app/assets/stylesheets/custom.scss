@@ -268,6 +268,11 @@ footer {
   }
 }
 
+ul.users-list {
+  width: 40%;
+  margin: auto;
+}
+
 /* Show course */
 
 .user {
@@ -288,6 +293,17 @@ footer {
     text-align: left;
     color: black;
     font-size: 1.5em;
+  }
+}
+
+.course-buttons {
+  list-style: none;
+  margin: 0;
+  float: right;
+  li {
+    float: right;
+    display: inline;
+    padding-left: 5px;
   }
 }
 

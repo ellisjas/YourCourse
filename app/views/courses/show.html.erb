@@ -4,7 +4,21 @@
 <div class="row">
   <div class="col-md-8">
     <div class="course">
-      <h2>Prequisite: <%= @course.prerequisite %></h2>
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Prequisite: <%= @course.prerequisite %></h2>
+        </div>
+        <div class="col-md-8">
+          <ul class="course-buttons">
+            <li>
+              <%= link_to "Return to Course List", courses_path, class: "btn btn-info" %>
+            </li>
+            <% if @user == current_user %>
+              <li><%= link_to "Edit Course", "#", class: "btn btn-success" %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
       <div class="grey-box">
         <p>
           <strong>Category:</strong>
@@ -23,4 +37,4 @@
     <%= render @user %>
   </div>
 </div>
-<%= link_to "Return to Course List", courses_path, class: "btn btn-info" %>
+<%= image_tag @course.picture.url if @course.picture? %>
