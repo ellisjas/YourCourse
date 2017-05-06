@@ -1,0 +1,29 @@
+<% provide(:title, @course.name) %>
+<h1><%= @course.name%></h1>
+<hr />
+<div class="row">
+  <div class="col-md-8">
+    <div class="course">
+      <h2>Prequisite: <%= @course.prerequisite %></h2>
+      <div class="grey-box">
+        <p>
+          <strong>Category:</strong>
+          <%= @categories.map { |c| link_to(c.name, c) }.join(', ').html_safe %>
+        </p>
+        <p>
+          <strong>Location: </strong>
+          <%= @locations.map { |l| link_to(l.location, l) }.join(', ').html_safe %>
+        </p>
+        <p><strong>Course description:</strong></p>
+        <p><%= @course.description %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1 course-user">
+    <%= link_to @user do %>
+      <%= gravatar_for @user %>
+      <p>Brought to you by <%= @user.name %></p>
+    <% end %>
+  </div>
+</div>
+<%= link_to "Return to Course List", "#", class: "btn btn-info" %>
