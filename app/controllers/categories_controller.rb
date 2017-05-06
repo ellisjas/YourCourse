@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
+    @courses = @category.courses
   end
   
   def new
@@ -18,11 +19,6 @@ class CategoriesController < ApplicationController
     else
       render 'new'
     end
-  end
-  
-  def courses
-    @category = Category.find(params[:id])
-    @courses = @category.courses
   end
   
   private

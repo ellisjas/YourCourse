@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
   
   def index
     @courses = Course.all
-    @users = User.all
+    @users = User.find_by_sql("SELECT u.id, u.email, u.name FROM users AS u JOIN courses ON u.id = courses.user_id GROUP BY u.id")
   end
   
   def new

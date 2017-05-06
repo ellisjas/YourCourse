@@ -1,8 +1,6 @@
 <% provide(:title, @location.location) %>
 <h1>Courses scheduled in <%= @location.location %></h1>
 <hr />
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h2>To do: list courses here.</h2>
-  </div>
-</div>
+<ul class="courses">
+  <%= render @courses %>
+</ul>
