@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  root 'static_pages#home'
 
   get 'categories/show'
 
@@ -7,8 +9,7 @@ Rails.application.routes.draw do
   get 'categories/create'
   
   get 'locations/new'
-
-  root 'static_pages#home'
+  
   get 'static_pages/home'
   
   get  '/signup',  to: 'users#new'
