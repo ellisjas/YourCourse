@@ -5,34 +5,24 @@
   <h2>
     This is the home page for RAD Assignment 2.
   </h2>
-  <% if !logged_in? %>
-    <%= link_to signup_path, class: "btn btn-lg btn-danger" do %>
-        <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up now
-    <% end %>
+  <%= link_to signup_path, class: "btn btn-lg btn-danger" do %>
+    <i class="fa fa-user-plus" aria-hidden="true"></i> Sign up now
   <% end %>
 </div>
 
 <div class="row" id="home-options">
   <div class="col-md-6">
-    <h1>View all courses</h1>
-    <p>Browse and view courses and coordinators</p>
+    <h1>View all courses as a guest</h1>
+    <p>Browse and view courses as a guest user</p>
     <%= link_to courses_path, class: "btn btn-success" do %>
       <i class="fa fa-book" aria-hidden="true"></i> Browse all courses
     <% end %>
   </div>
   <div class="col-md-6">
-    <% if logged_in? %>
-      <h1>Create a new course</h1>
-      <p>Create a new course with course information.</p>
-      <%= link_to login_path, class: "btn btn-success" do %>
-        <i class="fa fa-file-text-o" aria-hidden="true"></i> Create a course
-      <% end %>
-    <% else %>
-      <h1>Sign in to your account</h1>
-      <p>Update your courses, view your courses, view coordinator information</p>
-      <%= link_to login_path, class: "btn btn-success" do %>
-        <i class="fa fa-sign-in" aria-hidden="true"></i> Log in to your account
-      <% end %>
+    <h1>Sign in to your account</h1>
+    <p>Update your courses, view your courses, view coordinator information</p>
+    <%= link_to login_path, class: "btn btn-success" do %>
+      <i class="fa fa-sign-in" aria-hidden="true"></i> Log in to your account
     <% end %>
   </div>
 </div>
