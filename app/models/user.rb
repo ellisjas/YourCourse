@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_secure_password
   VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\W]).{8,}\z/
   validates :password, presence: true, length: { minimum: 8 }, format: { with: VALID_PASSWORD_REGEX, 
-                                                                          message: "must contain at least one capital letter, a number, and a special character." }
+                                                                          message: "must contain at least one capital letter, number, and special character." }
 
   has_secure_password
   
