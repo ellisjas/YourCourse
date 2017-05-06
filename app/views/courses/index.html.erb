@@ -1,5 +1,7 @@
-<h3>All Courses</h3>
-<ol class="courses">
+<% provide(:title, 'All Course') %>
+<h1>All Courses</h1>
+<hr />
+
+<ul class="courses">
   <%= render @courses %>
-</ol>
-<%= will_paginate @courses %>
+</ul>

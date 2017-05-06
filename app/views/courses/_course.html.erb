@@ -1,9 +1,31 @@
-<%= link_to gravatar_for(course.user, size: 50), course.user %>
-  <span class="user"><%= link_to course.user.name, course.user %></span>
-  <span class="name"><%= course.name %></span>
-  <span class="prerequisite"><%= course.prerequisite %></span>
-  <span class="description"><%= course.description %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(course.created_at) %> ago.
-  </span>
+<li>
+  <div class="row">
+    <div class="col-md-2">
+      <% @user = User.find(course.user_id) %>
+      <%= render @user %>
+    </div>
+    <div class="col-md-6 course">
+      <div class="grey-box">
+        <h2>
+          <%= link_to course.name, course %>
+        </h2>
+        <p>
+          <strong>Category:</strong>
+          <%= course.categories.map { |c| link_to(c.name, c) }.join(', ').html_safe %>
+        </p>
+        <p>
+          <strong>Location: </strong>
+          <%= course.locations.map { |l| link_to(l.location, l) }.join(', ').html_safe %>
+        </p>
+        <p>
+          <strong>Created: </strong>
+          <%= time_ago_in_words(course.created_at) %> ago.
+        </p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag course.picture.url if course.picture? %>
+    </div>
+  </div>
+  <hr />
 </li>

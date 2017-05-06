@@ -19,6 +19,7 @@ body {
   padding-top: 60px;
   font-family: 'Open Sans', sans-serif;
   font-size: 1.5em;
+  background-color: white;
 }
 
 .container {
@@ -90,6 +91,10 @@ p {
 
 
 /* header */
+
+.navbar {
+  background-color: white;
+}
 
 #logo {
   float: left;
@@ -265,7 +270,7 @@ footer {
 
 /* Show course */
 
-.course-user {
+.user {
   text-align: center;
   img {
     width: 80%;
@@ -283,5 +288,15 @@ footer {
     text-align: left;
     color: black;
     font-size: 1.5em;
+  }
+}
+
+/* Courses index */
+
+.courses {
+  list-style: none;
+  margin: 0;
+  li {
+    margin-bottom: 10px;
   }
 }

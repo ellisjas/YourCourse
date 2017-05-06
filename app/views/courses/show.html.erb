@@ -20,10 +20,7 @@
     </div>
   </div>
   <div class="col-md-3 col-md-offset-1 course-user">
-    <%= link_to @user do %>
-      <%= gravatar_for @user %>
-      <p>Brought to you by <%= @user.name %></p>
-    <% end %>
+    <%= render @user %>
   </div>
 </div>
 <%= link_to "Return to Course List", "#", class: "btn btn-info" %>

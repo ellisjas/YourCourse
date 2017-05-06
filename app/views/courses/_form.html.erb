@@ -1,0 +1,33 @@
+
+    <div class="grey-box">
+      <%= form_for @course do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+  
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+  
+        <%= f.label :prerequisite %>
+        <%= f.text_field :prerequisite, class: 'form-control' %>
+  
+        <%= f.label :description %>
+        <%= f.text_area :description, class: 'form-control', rows: '10' %>
+        
+        <%= f.label :category_ids, "Category" %>
+        <div class="checkboxes">
+          <%= f.collection_check_boxes :category_ids, Category.all, :id, :name, {}, { multiple: true } %>
+        </div>
+        
+        <br />
+        
+        <%= f.label :location_ids, "Location" %>
+        <div class="checkboxes">
+          <%= f.collection_check_boxes :location_ids, Location.all, :id, :location, {}, { multiple: true } %>
+        </div>
+        
+        <span class="picture">
+          <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+        </span>
+  
+        <%= f.submit yield(:button_text), class: "btn btn-success" %>
+      <% end %>
+    </div>

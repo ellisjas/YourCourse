@@ -1,0 +1,5 @@
+<% user = User.find(@course.user_id) %>
+<%= link_to user do %>
+  <%= gravatar_for user %>
+  <p>Coordinator: <%= user.name %></p>
+<% end %>
