@@ -15,6 +15,8 @@ class Course < ApplicationRecord
   validates :prerequisite, presence: true, length: { in: 10..50 }
   validates :description, presence: true, length: { in: 30..400 }
   validate :picture_size
+  validates :locations, presence: true
+  validates :categories, presence: true
   
   private
   
