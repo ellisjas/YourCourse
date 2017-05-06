@@ -24,6 +24,7 @@
           <%= f.collection_check_boxes :location_ids, Location.all, :id, :location, {}, { multiple: true } %>
         </div>
         
+        <%= f.label :picture, "Course image" %>
         <span class="picture">
           <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
         </span>

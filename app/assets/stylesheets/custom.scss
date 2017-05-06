@@ -243,6 +243,9 @@ footer {
   label {
     font-weight: normal;
   }
+  input[type="checkbox"] {
+    width: 4%;
+  }
 }
 
 /* miscellaneous */
