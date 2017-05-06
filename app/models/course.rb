@@ -13,7 +13,7 @@ class Course < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   
   validates :user_id, presence: true
-  validates :name, presence: true, length: { in: 10..50 }
+  validates :name, presence: true, length: { in: 10..50 },  uniqueness: { case_sensitive: false }
   validates :prerequisite, presence: true, length: { in: 10..50 }
   validates :description, presence: true, length: { in: 30..400 }
   validate :picture_size
