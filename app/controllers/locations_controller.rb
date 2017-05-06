@@ -21,11 +21,6 @@ class LocationsController < ApplicationController
     end
   end
   
-  def courses
-    @location = Location.find(params[:id])
-    @courses = @location.courses
-  end
-  
   private
     
     def location_params

@@ -22,7 +22,7 @@ class CoursesController < ApplicationController
     @course = current_user.courses.build(course_params)
     if @course.save
       flash[:success] = "Course created!"
-      redirect_to root_url
+      redirect_to courses_url
     else
       render 'new'
     end
