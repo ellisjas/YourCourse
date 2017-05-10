@@ -44,4 +44,5 @@ class User < ApplicationRecord
   def dislike(course)
     dislikes << course
   end
+  
 end

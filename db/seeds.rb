@@ -29,6 +29,7 @@ jasmine.courses.create!(name:           "Web Database Applications",
 jasmine.courses.create!(name:           "Rapid Application Development", 
                         prerequisite:   "Web Programming", 
                         description:    "Rapid application development provides a range of enabling skills for independent development of complete and industry standard software applications.  These skills will equip students to be ready for commercial development and to meet the demand of clients of various sizes, especially startups.", 
+                        picture: Rails.root.join("db/images/rad.png").open,
                         category_ids:   [4],
                         location_ids:   [1, 4])
                                 
@@ -44,13 +45,11 @@ steven.courses.create!(name:            "Programming Project 1",
                        category_ids:    [3],
                        location_ids:    [1, 2])
                        
-# Likes and dislikes
-user = User.first
-liked_courses = Course.where(id: 1..2)
-disliked_courses = Course.where(id: 3..4)
-
-liked_courses.each { |l| user.like(l) }
-disliked_courses.each { |d| user.dislike(d) }
-
+steven.courses.create!(name:            "Cloud Computing", 
+                       prerequisite:    "Web Programming",
+                       description:     "This course is designed to provide you with hands-on practical experience developing software and/or delivering IT solutions in a project environment. You will work in teams and complete projects from inception to implementation.",
+                       picture: Rails.root.join("db/images/cloud.jpg").open,
+                       category_ids:    [4],
+                       location_ids:    [1, 4])
 
                        

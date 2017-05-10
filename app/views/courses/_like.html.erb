@@ -1,0 +1,6 @@
+<%= form_for(current_user.likeables.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :liked_id, course.id %></div>
+  <%= button_tag type: 'submit', class: "btn" do %>
+    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <span id="likers"><%= course.likers.count %></span>
+  <% end %>
+<% end %>
