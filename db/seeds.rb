@@ -28,7 +28,8 @@ jasmine.courses.create!(name:           "Web Database Applications",
 
 jasmine.courses.create!(name:           "Rapid Application Development", 
                         prerequisite:   "Web Programming", 
-                        description:    "Rapid application development provides a range of enabling skills for independent development of complete and industry standard software applications.  These skills will equip students to be ready for commercial development and to meet the demand of clients of various sizes, especially startups.", 
+                        description:    "Rapid application development provides a range of enabling skills for independent development of complete and industry standard software applications.  These skills will equip students to be ready for commercial development and to meet the demand of clients of various sizes, especially startups.",
+                        picture: Rails.root.join("db/images/rad.png").open,
                         category_ids:   [4],
                         location_ids:   [1, 4])
                                 
@@ -44,3 +45,9 @@ steven.courses.create!(name:            "Programming Project 1",
                        category_ids:    [3],
                        location_ids:    [1, 2])
                        
+steven.courses.create!(name:            "Cloud Computing", 
+                       prerequisite:    "Web Programming",
+                       description:     "This course covers topics and technologies related to Cloud Computing and their practical implementations. You should explore different architectural models of cloud computing, the concepts of virtualisation and cloud orchestration. You should gain hands-on experience with various features of popular cloud platforms such as Google App Engine, IBM Bluemix and Amazon Web Services.",
+                       picture: Rails.root.join("db/images/cloud.jpg").open,
+                       category_ids:    [4],
+                       location_ids:    [2, 4])
