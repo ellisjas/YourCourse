@@ -44,3 +44,13 @@ steven.courses.create!(name:            "Programming Project 1",
                        category_ids:    [3],
                        location_ids:    [1, 2])
                        
+# Likes and dislikes
+user = User.first
+liked_courses = Course.where(id: 1..2)
+disliked_courses = Course.where(id: 3..4)
+
+liked_courses.each { |l| user.like(l) }
+disliked_courses.each { |d| user.dislike(d) }
+
+
+                       
