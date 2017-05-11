@@ -1,5 +1,4 @@
 <%= form_for(current_user.dislikeables.build, remote: true) do |f| %>
-  <%= render 'shared/error_messages', object: f.object %>
   <div><%= hidden_field_tag :disliked_id, course.id %></div>
   <%= button_tag type: 'submit', class: "btn" do %>
     <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <span id="dislikers"><%= course.dislikers.count %></span>
