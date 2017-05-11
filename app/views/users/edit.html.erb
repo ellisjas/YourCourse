@@ -1,21 +1,4 @@
 <% provide(:title, "Edit user") %>
+<% provide(:button_text, 'Update Profile Information') %>
 <h1>Update your profile</h1>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(@user) do |f| %>
-      <%= render 'shared/error_messages' %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Update Profile Information", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-</div>
+<%= render 'form' %>
