@@ -10,10 +10,20 @@ Bundler.require(*Rails.groups)
 
 module Workspace
   class Application < Rails::Application
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
+    
+    config.before_configuration do
+      env_file = File.join(Rails.root, 'config', 'local_env.yml')
+      YAML.load(File.open(env_file)).each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exists?(env_file)
+    end
+    
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.embed_authenticity_token_in_remote_forms = true
     
-    config.action_mailer.default_url_options = { :host => 'http://www.example.com' }
+    config.action_mailer.default_url_options = { :host => ENV['app_host'] }
     config.action_mailer.delivery_method = :smtp
   
     config.action_mailer.smtp_settings = {
