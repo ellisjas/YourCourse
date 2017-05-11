@@ -28,7 +28,7 @@ jasmine.courses.create!(name:           "Web Database Applications",
 
 jasmine.courses.create!(name:           "Rapid Application Development", 
                         prerequisite:   "Web Programming", 
-                        description:    "Rapid application development provides a range of enabling skills for independent development of complete and industry standard software applications.  These skills will equip students to be ready for commercial development and to meet the demand of clients of various sizes, especially startups.",
+                        description:    "Rapid application development provides a range of enabling skills for independent development of complete and industry standard software applications.  These skills will equip students to be ready for commercial development and to meet the demand of clients of various sizes, especially startups.", 
                         picture: Rails.root.join("db/images/rad.png").open,
                         category_ids:   [4],
                         location_ids:   [1, 4])
