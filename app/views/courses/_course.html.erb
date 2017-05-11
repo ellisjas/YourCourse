@@ -1,16 +1,20 @@
 <li>
   <div class="row">
-    <% unless @hide_user %>
-      <div class="col-md-2">
-        <% @user = User.find(course.user_id) %>
-        <%= render @user %>
+      <div class="col-md-3">
+        <% unless @hide_user %>
+          <% @user = User.find(course.user_id) %>
+          <%= render @user %>
+        <% end %>
       </div>
-    <% end %>
     <div class="col-md-6 course">
       <div class="grey-box">
         <h2>
           <%= link_to course.name, course %>
         </h2>
+        <p>
+          <strong>Prequisite:</strong>
+          <%= course.prerequisite %>
+        </p>
         <% unless @hide_cat_loc %>
           <p>
             <strong>Category:</strong>
@@ -27,11 +31,11 @@
         </p>
       </div>
     </div>
-    <% unless @hide_picture %>
-      <div class="col-md-4">
-        <%= image_tag course.picture.url if course.picture? %>
+      <div class="col-md-3">
+        <% unless @hide_picture %>
+          <%= image_tag course.picture.url if course.picture? %>
+        <% end %>
       </div>
-    <% end %>
   </div>
   <hr />
 </li>
