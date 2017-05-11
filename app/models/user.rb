@@ -26,7 +26,7 @@ class User < ApplicationRecord
   validates :password, presence: true, 
                        length: { minimum: 8 }, 
                        format: { with: VALID_PASSWORD_REGEX, 
-                            message: "must contain at least one capital letter, number, and special character." }
+                            message: "must contain at least one capital letter, number, and special character." }, allow_nil: true
 
   has_secure_password
   
