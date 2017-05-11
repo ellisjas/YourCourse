@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  post 'messages/create', to: 'messages#create', as: 'create_message'
 
   resources :users
   resources :courses

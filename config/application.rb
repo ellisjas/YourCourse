@@ -12,5 +12,18 @@ module Workspace
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
     config.action_view.embed_authenticity_token_in_remote_forms = true
+    
+    config.action_mailer.default_url_options = { :host => 'http://www.example.com' }
+    config.action_mailer.delivery_method = :smtp
+  
+    config.action_mailer.smtp_settings = {
+        :address => "smtp.gmail.com",
+        :port => 587,
+        :domain => "gmail.com",
+        :user_name => ENV['gmail_username'],
+        :password => ENV['gmail_password'],
+        :authentication => "plain",
+        :enable_starttls_auto => true
+    }
   end
 end
