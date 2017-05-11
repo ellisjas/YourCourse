@@ -4,6 +4,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @courses = @user.courses
+    @hide_user = true
+    @hide_cat_loc = true
+    @hide_picture = true
+    @hide_user = true
   end
 
   def new
@@ -28,7 +33,6 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # 处理更新成功的情况
     else
       render 'edit'
     end
