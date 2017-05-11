@@ -1,22 +1,30 @@
 <li>
   <div class="row">
-    <div class="col-md-2">
-      <% @user = User.find(course.user_id) %>
-      <%= render @user %>
-    </div>
+      <div class="col-md-3">
+        <% unless @hide_user %>
+          <% @user = User.find(course.user_id) %>
+          <%= render @user %>
+        <% end %>
+      </div>
     <div class="col-md-6 course">
       <div class="grey-box">
         <h2>
           <%= link_to course.name, course %>
         </h2>
         <p>
-          <strong>Category:</strong>
-          <%= course.categories.map { |c| link_to(c.name, c) }.join(', ').html_safe %>
+          <strong>Prequisite:</strong>
+          <%= course.prerequisite %>
         </p>
-        <p>
-          <strong>Location: </strong>
-          <%= course.locations.map { |l| link_to(l.location, l) }.join(', ').html_safe %>
-        </p>
+        <% unless @hide_cat_loc %>
+          <p>
+            <strong>Category:</strong>
+            <%= course.categories.map { |c| link_to(c.name, c) }.join(', ').html_safe %>
+          </p>
+          <p>
+            <strong>Location: </strong>
+            <%= course.locations.map { |l| link_to(l.location, l) }.join(', ').html_safe %>
+          </p>
+        <% end %>
         <p>
           <strong>Created: </strong>
           <%= time_ago_in_words(course.created_at) %> ago.
@@ -36,9 +44,11 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-4">
-      <%= image_tag course.picture.url if course.picture? %>
-    </div>
+      <div class="col-md-3">
+        <% unless @hide_picture %>
+          <%= image_tag course.picture.url if course.picture? %>
+        <% end %>
+      </div>
   </div>
   <hr />
 </li>

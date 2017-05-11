@@ -1,11 +1,22 @@
 <% provide(:title, @user.name) %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<h1>Coordinator: <%= @user.name %></h1>
+<hr />
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-2 col-md-offset-5">
+      <%= gravatar_for @user %>
+    </div>
+  </div>
+</div>
+
+<hr />
+<div class="container">
+  <div class="row">
+    <div>
+      <ul class="courses">
+        <%= render @courses %>
+      </ul>
+    </div>
+  </div>
 </div>
