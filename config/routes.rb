@@ -25,5 +25,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :locations
   resources :categories
+  resources :likeables,       only: [:create, :destroy]
+  resources :dislikeables,    only: [:create, :destroy]
 
 end

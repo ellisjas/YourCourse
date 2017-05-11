@@ -8,6 +8,14 @@ class Course < ApplicationRecord
   has_many :categorisations, dependent: :destroy
   has_many :categories, through: :categorisations
   
+  has_many :likeables, foreign_key: "liked_id",
+                       dependent:   :destroy
+  has_many :likers, through: :likeables, source: :liker
+                       
+  has_many :dislikeables, foreign_key: "disliked_id",
+                       dependent:   :destroy
+  has_many :dislikers, through: :dislikeables, source: :disliker
+  
   mount_uploader :picture, PictureUploader
   
   default_scope -> { order(created_at: :desc) }
@@ -19,6 +27,14 @@ class Course < ApplicationRecord
   validate :picture_size
   validates :locations, presence: true
   validates :categories, presence: true
+  
+  def liker?(user)
+    likes.include?(user)
+  end
+  
+  def disliker?(user)
+    dislikes.include?(user)
+  end
   
   private
   
