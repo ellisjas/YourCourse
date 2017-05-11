@@ -234,12 +234,33 @@ footer {
   ul {
     float: right;
     list-style: none;
-    li {
-      float: left;
-      margin-left: 15px;
-    }
+    list-style: none;
+    display: block;
+
   }
+  h3 {
+  font-weight: 100;
+  margin-bottom: 0;
+  }
+  
 }
+
+    .hoverable {
+      cursor:default;
+      color:#000;
+      text-decoration:none;
+    }
+    .hoverable .hover {
+      display:none;
+    }
+    .hoverable:hover .normal {
+      display:none;
+    }
+    .hoverable:hover .hover {
+      display:inline;  /* CHANGE IF FOR BLOCK ELEMENTS */
+    }
+
+
 
 .checkboxes {
   label {
@@ -249,6 +270,7 @@ footer {
     width: 4%;
   }
 }
+
 
 /* miscellaneous */
 
