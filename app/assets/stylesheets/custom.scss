@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 /* mixins, variables, etc. */
+$blue: #337ab7;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -324,7 +325,6 @@ ul.users-list {
 /* Like / dislike stats */
 
 .stats {
-  font-size: 1.2em;
   list-style: none;
   li {
     display: inline;
@@ -333,10 +333,11 @@ ul.users-list {
     .btn {
       background: transparent;
       display: inline;
+      color: $blue;
+      font-size: 1.2em;
+    }
+    .btn:hover {
+      color: black;
     }
   }
-}
-
-.red {
-  background: red;
 }

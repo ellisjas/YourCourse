@@ -23,11 +23,11 @@
         </p>
         <ul class="stats">
           <% if logged_in? %>
-          `<li>
-              <%= render partial: 'dislike', locals: {course: course} %>
+           <li>
+              <%= render partial: 'shared/dislike', locals: {course: course} %>
             </li>
             <li>
-              <%= render partial: 'like', locals: {course: course} %>
+              <%= render partial: 'shared/like', locals: {course: course} %>
             </li>
           <% else %>
             <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= course.likers.count %></li>
