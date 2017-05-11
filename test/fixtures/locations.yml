@@ -1,7 +1,5 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
- location: 014.09.18
- 
+  location: 014.12.078
+  
 two:
- location: 080.02.002
+  location: 012.12.078

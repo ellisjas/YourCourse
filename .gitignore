@@ -12,3 +12,7 @@
 
 # Ignore uploaded test images.
 /public/uploads
+
+
+# Ignore environmental variables
+/config/local_env.yml
