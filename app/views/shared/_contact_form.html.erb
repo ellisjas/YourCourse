@@ -1,9 +1,7 @@
-<%= form_for @message, url: create_message_url, class: 'contact-form' do |f| %>
+<%= form_for @message, url: create_message_url, html: { class: 'contact-form' } do |f| %>
   <%= notice %>
-  <%= render 'shared/error_messages', object: f.object %>
-
   <%= f.text_field :name, placeholder: 'name' %>
   <%= f.email_field :email, placeholder: 'email' %>
   <%= f.text_area :body, placeholder: 'body' %>
-  <%= f.submit 'Send' %>
+  <%= f.submit 'Send', class: 'btn contact-btn' %>
 <% end %>

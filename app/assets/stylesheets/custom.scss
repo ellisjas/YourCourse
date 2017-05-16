@@ -214,6 +214,22 @@ span.picture {
   }
 }
 
+form.contact-form {
+  height: auto;
+  padding-bottom: 15px;
+  input, 
+  textarea {
+    background-color: transparent !important;
+    border: 0px;
+    border-bottom: 1px solid black;
+  }
+  .contact-btn {
+    color: black;
+    border: 0px;
+    width: 20%;
+  }
+}
+
 /* footer */
 
 footer {
