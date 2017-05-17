@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170510012647) do
+ActiveRecord::Schema.define(version: 20170516110349) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -40,21 +40,12 @@ ActiveRecord::Schema.define(version: 20170510012647) do
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
-  create_table "dislikeables", force: :cascade do |t|
-    t.integer  "disliker_id"
-    t.integer  "disliked_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["disliked_id"], name: "index_dislikeables_on_disliked_id"
-    t.index ["disliker_id", "disliked_id"], name: "index_dislikeables_on_disliker_id_and_disliked_id", unique: true
-    t.index ["disliker_id"], name: "index_dislikeables_on_disliker_id"
-  end
-
   create_table "likeables", force: :cascade do |t|
     t.integer  "liker_id"
     t.integer  "liked_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean  "like"
     t.index ["liked_id"], name: "index_likeables_on_liked_id"
     t.index ["liker_id", "liked_id"], name: "index_likeables_on_liker_id_and_liked_id", unique: true
     t.index ["liker_id"], name: "index_likeables_on_liker_id"

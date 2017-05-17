@@ -31,15 +31,10 @@
         </p>
         <ul class="stats">
           <% if logged_in? %>
-           <li>
-              <%= render partial: 'shared/dislike', locals: {course: course} %>
-            </li>
-            <li>
-              <%= render partial: 'shared/like', locals: {course: course} %>
-            </li>
+            <%= render partial: "likeables/like", locals: { course: course } %>
           <% else %>
-            <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= course.likers.count %></li>
-            <li><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <%= course.dislikers.count %></li>
+            <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= count_likes(course) %></li>
+            <li><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <%= count_dislikes(course) %></li>
           <% end %>
         </ul>
       </div>

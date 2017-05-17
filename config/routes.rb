@@ -22,12 +22,14 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   post 'messages/create', to: 'messages#create', as: 'create_message'
+  
+  post '/likes' => 'likeables#like', as: :like_create
+  post '/dislikes' => 'likeables#dislike', as: :dislike_create
 
   resources :users
   resources :courses
   resources :locations
   resources :categories
-  resources :likeables,       only: [:create, :destroy]
-  resources :dislikeables,    only: [:create, :destroy]
+  resources :likeables
 
 end

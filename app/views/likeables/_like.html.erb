@@ -1,0 +1,17 @@
+<div id="like_course_<%= course.id %>">
+  
+  <li>
+    <!-- Create dislike -->
+    <%= link_to dislike_create_path(id: course.id), method: :post, remote: true do %>
+      <i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <%= count_dislikes(course) %>
+    <% end %>
+  </li>
+  
+  <li>
+    <!-- Create like -->
+    <%= link_to like_create_path(id: course.id), method: :post, remote: true do %>
+      <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= count_likes(course) %>
+    <% end %>
+  </li>
+  
+</div>

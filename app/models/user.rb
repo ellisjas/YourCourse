@@ -7,10 +7,6 @@ class User < ApplicationRecord
   has_many :likeables, foreign_key: "liker_id",
                        dependent:   :destroy
   has_many :likes, through: :likeables, source: :liked
-                       
-  has_many :dislikeables, foreign_key: "disliker_id",
-                       dependent:   :destroy
-  has_many :dislikes, through: :dislikeables, source: :disliked
   
   validates :name, presence: true, length: { maximum: 50, minimum: 4 }
   
@@ -39,10 +35,6 @@ class User < ApplicationRecord
   
   def like(course)
     likes << course
-  end
-  
-  def dislike(course)
-    dislikes << course
   end
   
 end
