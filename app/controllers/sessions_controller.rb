@@ -41,7 +41,7 @@ class SessionsController < ApplicationController
       redirect_to courses_url
     else
       flash[:danger] = 'Invalid username/password combination'
-      render 'new'
+      render 'admin_new'
     end
   end
 
