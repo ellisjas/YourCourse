@@ -1,1 +1,1 @@
-$("#like_course_<%= @course.id %>").html("<%= j(render partial: 'likeables/like', locals: {course: @course}) %>")
+$("#like_course_<%= @course.id %>").html("<%= j(render partial: 'likeables/static_like', locals: {course: @course}) %>")
