@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   
-  before_action :is_not_coordinator, only: [:admin_new, :admin_create]
+  before_action :is_not_coordinator, only: [:new, :admin_new, :admin_create]
   before_action :is_not_admin, only: [:new, :create]
   before_action :is_admin, only: :admin_destroy
 
