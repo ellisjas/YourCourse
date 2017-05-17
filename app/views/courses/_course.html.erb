@@ -41,7 +41,7 @@
     </div>
       <div class="col-md-3">
         <% unless @hide_picture %>
-          <%= image_tag course.picture.url if course.picture? %>
+          <%= image_tag course.picture.thumb.url if course.picture? %>
         <% end %>
       </div>
   </div>

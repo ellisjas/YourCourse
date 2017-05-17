@@ -16,6 +16,7 @@
         </p>
         <p><strong>Course description:</strong></p>
         <p><%= @course.description %></p>
+        <%= image_tag @course.picture.url if @course.picture? %>
       </div>
     </div>
   </div>
