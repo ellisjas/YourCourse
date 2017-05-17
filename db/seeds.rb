@@ -51,3 +51,6 @@ steven.courses.create!(name:            "Cloud Computing",
                        picture: Rails.root.join("db/images/cloud.jpg").open,
                        category_ids:    [4],
                        location_ids:    [2, 4])
+                       
+# Admin
+Admin.create!(username: "admin", password: "password", password_confirmation: "password")
