@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root 'static_pages#home'
 
   get 'categories/show'
@@ -25,11 +25,14 @@ Rails.application.routes.draw do
   
   post '/likes' => 'likeables#like', as: :like_create
   post '/dislikes' => 'likeables#dislike', as: :dislike_create
+  
+  get    '/admin-login',   to: 'admin_sessions#new'
+  post   '/admin-login',   to: 'admin_sessions#create'
+  delete '/admin-logout',  to: 'admin_sessions#destroy'
 
   resources :users
   resources :courses
-  resources :locations
-  resources :categories
-  resources :likeables
+  resources :locations, except: :destroy
+  resources :categories, except: :destroy
 
 end
