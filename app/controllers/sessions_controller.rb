@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   
-  before_action: :not_logged_in, only: [:new, :admin_create]
-  before_action: :is_admin, only: [:admin_destroy]
+  before_action :is_not_coordinator, only: [:admin_new, :admin_create]
+  before_action :is_not_admin, only: [:new, :create]
+  before_action :is_admin, only: :admin_destroy
 
   # Coordinator login page
   def new
@@ -52,9 +53,9 @@ class SessionsController < ApplicationController
   
   private
   
-    # Checks that is user not logged in
-    def not_logged_in
-      if logged_in? || admin_logged_in?
+    # Checks that is user not logged in as admin
+    def is_not_admin
+      if admin_logged_in?
         redirect_to courses_url
       end
     end
@@ -62,6 +63,13 @@ class SessionsController < ApplicationController
     # Checks that user is an admin
     def is_admin
       unless admin_logged_in?
+        redirect_to courses_url
+      end
+    end
+    
+    # Checks that user is not a coordinator
+    def is_not_coordinator
+      if logged_in?
         redirect_to courses_url
       end
     end

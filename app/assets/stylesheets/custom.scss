@@ -347,6 +347,7 @@ ul.users-list {
 .course-buttons {
   list-style: none;
   margin: 0;
+  padding: 0;
   li {
     margin: 0;
     display: inline;
@@ -382,5 +383,15 @@ ul.users-list {
     .btn:hover {
       color: black;
     }
+  }
+}
+
+/* Admin stuff */
+
+.admin-btns {
+  list-style: none;
+  padding: 0;
+  li {
+    display: inline;
   }
 }

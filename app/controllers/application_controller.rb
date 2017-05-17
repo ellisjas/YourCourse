@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   #Confirms a logged in user
   def logged_in_user
     unless logged_in?
-      flash[:danger] = "Please log in."
+      flash[:danger] = "You do not have permission to access that page."
       redirect_to login_url
     end
   end
