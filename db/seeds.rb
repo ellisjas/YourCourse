@@ -54,3 +54,11 @@ steven.courses.create!(name:            "Cloud Computing",
                        
 # Admin
 Admin.create!(username: "admin", password: "password", password_confirmation: "password")
+
+# Likes and dislikes
+Likeable.create_like(Course.find(1), steven)
+Likeable.create_like(Course.find(2), jasmine)
+Likeable.create_like(Course.find(2), steven)
+Likeable.create_like(Course.find(4), jasmine)
+Likeable.create_dislike(Course.find(5), jasmine)
+Likeable.create_dislike(Course.find(3), steven)
