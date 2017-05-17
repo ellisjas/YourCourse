@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
-      flash[:success] = 'Welcome back!'
+      flash[:success] = "Welcome back " + user.name + "!"
       log_in user
       redirect_to user
     else
@@ -36,7 +36,7 @@ class SessionsController < ApplicationController
   def admin_create
     admin = Admin.find_by(username: params[:session][:username].downcase)
     if admin && admin.authenticate(params[:session][:password])
-      flash[:success] = 'Welcome back!'
+      flash[:success] = "Welcome back " + admin.username + "!"
       log_in_admin admin
       redirect_to courses_url
     else
