@@ -21,14 +21,14 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
   
+  get    '/admin-login',   to: 'sessions#admin_new'
+  post   '/admin-login',   to: 'sessions#admin_create'
+  delete '/admin-logout',  to: 'sessions#admin_destroy'
+  
   post 'messages/create', to: 'messages#create', as: 'create_message'
   
   post '/likes' => 'likeables#like', as: :like_create
   post '/dislikes' => 'likeables#dislike', as: :dislike_create
-  
-  get    '/admin-login',   to: 'admin_sessions#new'
-  post   '/admin-login',   to: 'admin_sessions#create'
-  delete '/admin-logout',  to: 'admin_sessions#destroy'
 
   resources :users
   resources :courses

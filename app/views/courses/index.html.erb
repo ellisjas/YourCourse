@@ -1,5 +1,8 @@
 <% provide(:title, 'All Course') %>
 <h1>All Courses</h1>
+<% if admin_logged_in? %>
+  <h2>Welcome admin</h2>
+<% end %>
 <hr />
 
 <div>

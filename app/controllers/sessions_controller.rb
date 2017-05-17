@@ -1,10 +1,13 @@
 class SessionsController < ApplicationController
+  
+  before_action: :not_logged_in, only: [:new, :admin_create]
+  before_action: :is_admin, only: [:admin_destroy]
 
-  # Login page
+  # Coordinator login page
   def new
   end
 
-  # Login
+  # Coordinator login
   def create
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
@@ -17,9 +20,50 @@ class SessionsController < ApplicationController
     end
   end
 
-  # Log user out
+  # Coordinator log out
   def destroy
     log_out
     redirect_to root_url
   end
+  
+  # ADMIN
+  # Admin login page
+  def admin_new
+  end
+
+  # Admin login
+  def admin_create
+    admin = Admin.find_by(username: params[:session][:username].downcase)
+    if admin && admin.authenticate(params[:session][:password])
+      flash[:success] = 'Welcome back!'
+      log_in_admin admin
+      redirect_to courses_url
+    else
+      flash[:danger] = 'Invalid username/password combination'
+      render 'new'
+    end
+  end
+
+  # Admin log out
+  def admin_destroy
+    log_out_admin
+    redirect_to root_url
+  end
+  
+  private
+  
+    # Checks that is user not logged in
+    def not_logged_in
+      if logged_in? || admin_logged_in?
+        redirect_to courses_url
+      end
+    end
+    
+    # Checks that user is an admin
+    def is_admin
+      unless admin_logged_in?
+        redirect_to courses_url
+      end
+    end
+  
 end
