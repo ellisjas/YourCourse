@@ -32,15 +32,17 @@
         <% if admin_logged_in? %>
           <ul class="admin-btns">
             <li><%= link_to "Delete course", "#", class: "btn btn-danger" %></li>
-            <li><%= link_to "Reset votes", "#", class: "btn btn-warning" %></li>
+            <li><%= link_to "Reset votes", like_reset_path(id: course.id), method: :post, class: "btn btn-warning", remote: true %></li>
           </ul>
         <% end %>
         <ul class="stats">
           <% if logged_in? %>
             <%= render partial: "likeables/like", locals: { course: course } %>
           <% else %>
-            <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= count_likes(course) %></li>
-            <li><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <%= count_dislikes(course) %></li>
+            <div id="like_course_<%= course.id %>">
+              <li><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <%= count_likes(course) %></li>
+              <li><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> <%= count_dislikes(course) %></li>
+            </div>
           <% end %>
         </ul>
       </div>

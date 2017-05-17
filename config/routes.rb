@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   
   post '/likes' => 'likeables#like', as: :like_create
   post '/dislikes' => 'likeables#dislike', as: :dislike_create
+  post '/reset' => 'likeables#reset', as: :like_reset
 
   resources :users
   resources :courses

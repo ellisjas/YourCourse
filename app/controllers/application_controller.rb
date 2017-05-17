@@ -18,4 +18,12 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # Checks that user is an admin
+  def logged_in_admin
+    unless admin_logged_in?
+      flash[:danger] = "You do not have permission to do that."
+      redirect_to courses_url
+    end
+  end
+  
 end

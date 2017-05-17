@@ -27,9 +27,9 @@ class Likeable < ApplicationRecord
     end
   end
   
-  # def self.reset_likes(course)
-  #   likes = Likeable.where(liked_id: course.id)
-  #   likes.destroy_all
-  # end
+  def self.reset_likes(course)
+    likes = Likeable.where(liked_id: course.id)
+    likes.destroy_all
+  end
     
 end

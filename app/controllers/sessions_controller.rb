@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   
   before_action :is_not_coordinator, only: [:new, :admin_new, :admin_create]
   before_action :is_not_admin, only: [:new, :create]
-  before_action :is_admin, only: :admin_destroy
+  before_action :logged_in_admin, only: :admin_destroy
 
   # Coordinator login page
   def new
@@ -56,13 +56,6 @@ class SessionsController < ApplicationController
     # Checks that is user not logged in as admin
     def is_not_admin
       if admin_logged_in?
-        redirect_to courses_url
-      end
-    end
-    
-    # Checks that user is an admin
-    def is_admin
-      unless admin_logged_in?
         redirect_to courses_url
       end
     end
